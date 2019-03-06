@@ -24,7 +24,7 @@ describe('RegressionTest', () => {
         song.singSong(1, names);
         song.singSong(2, names);
         song.singSong(3, names);
-        this.verify(song.song,  {reporters: ['diffmerge']});
+        this.verify(song.song);
     });
     it('test lesson3', function() {
         const song = new lesson3.Lesson3HigherOrderFunctions();

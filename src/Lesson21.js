@@ -1,44 +1,62 @@
-const Song = require("./Song.js");
+const Song = require("./Song.js")
+
 
 class Lesson21 extends Song.Song {
     constructor() {
-        super();
+        super()
     }
 
     singSong(style, names) {
-        switch (style) {
-            case 1 :
-                for (var i = 0; i < names.length; i++){
-                    var name = names[i];
-                    if (name.startsWith("L", 0)) {
-                        this.sing("Hip Hip Horray! For " + name);
-                    }
-                    else {
-                        this.sing("Hello " + name + ", it's nice to meet you.");
-                    }
-                }
-                break;
-            case 2 :
-                for (var i = 0; i < names.length; i++){
-                    var name = names[i];
-                    if (name.startsWith("am", 1)) {
-                        this.sing("Say yeah! Say yo! Say " + name);
-                    }
-                    else {
-                        this.sing("Hello " + name + ", it's nice to meet you.");
-                    }
-                }
-                break;
-            case 3 :
-                for (var i = 0; i < names.length; i++){
-                    var name = names[i];
-                    this.sing("Hello " + name + ", it's nice to meet you.");
-                }
-                break;
+        let singer = [new Style1(), new Style2(), new Style3()][style -1]
+        for (let name of names) {
+
+            if (singer.isMatch(name)) {
+                this.sing(singer.matchPhrase(name))
+            } else {
+                this.singHello(name)
+            }
         }
+    }
+
+
+    singHello(name) {
+        this.sing("Hello " + name + ", it's nice to meet you.")
     }
 }
 
+
+class Style1 extends Lesson21 {
+
+    isMatch(name) {
+        return name.startsWith("L", 0)
+    }
+
+    matchPhrase(name) {
+        return "Hip Hip Horray! For " + name
+    }
+}
+
+class Style2 extends Lesson21 {
+
+    isMatch(name) {
+        return name.startsWith("am", 1)
+    }
+
+    matchPhrase(name) {
+        return "Say yeah! Say yo! Say " + name
+    }
+}
+
+class Style3 extends Lesson21 {
+
+    isMatch(name) {
+        return false
+    }
+
+    matchPhrase(name) {
+        throw new Error('should not happen')
+    }
+}
 
 module.exports = {
     Lesson21

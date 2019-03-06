@@ -29,7 +29,7 @@ describe('RegressionTest', () => {
     it('test lesson3', function() {
         const song = new lesson3.Lesson3HigherOrderFunctions();
         song.singSong();
-        this.verify(song.song,  {reporters: ['diffmerge']});
+        this.verify(song.song);
 
     });
     it('test lesson31', function() {

@@ -4,14 +4,21 @@ class Lesson2Variable extends Song.Song {
         super();
     }
     singBottlesOfBeer() {
-        this.sing("100 bottles of beer on the wall");
-        this.sing("100 bottles of beer");
-        this.sing("Take one down, pass it around");
-        this.sing("99 bottles of beer on the wall");
-        this.sing("99 bottles of beer on the wall");
-        this.sing("99 bottles of beer");
-        this.sing("Take one down, pass it around");
-        this.sing("98 bottles of beer on the wall");
+        let bottles = 100
+
+        bottles = this.singRefrain(bottles)
+        bottles = this.singRefrain(bottles)
+
+
+    }
+
+    singRefrain(bottles) {
+        this.sing(bottles + " bottles of beer on the wall")
+        this.sing(bottles + " bottles of beer")
+        this.sing("Take one down, pass it around")
+        bottles--
+        this.sing(bottles + " bottles of beer on the wall")
+        return bottles
     }
 }
 

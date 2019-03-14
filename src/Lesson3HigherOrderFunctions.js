@@ -9,6 +9,7 @@ class Lesson3HigherOrderFunctions extends Song.Song {
         var number = 0
         const nextNumber = n => n + 2
         this.repeat4times(number, nextNumber)
+
         this.sing("Who do we appreciate?")
 
         number = 13
@@ -20,14 +21,10 @@ class Lesson3HigherOrderFunctions extends Song.Song {
 
     repeat4times(number, nextNumber) {
 
-        number = nextNumber(number)
-        this.sing(number + "! ")
-        number = nextNumber(number)
-        this.sing(number + "! ")
-        number = nextNumber(number)
-        this.sing(number + "! ")
-        number = nextNumber(number)
-        this.sing(number + "! ")
+        for (let i = 0; i < 4; i++) {
+            number = nextNumber(number)
+            this.sing(number + "! ")
+        }
 
     }
 

@@ -7,7 +7,8 @@ class Lesson21 extends Song.Song {
     }
 
     singSong(style, names) {
-        let singer = [new Style1(), new Style2(), new Style3()][style -1]
+        let singerStrategies = [new Style1(), new Style2(), new Style3()]
+        let singer = singerStrategies[style - 1]
         for (let name of names) {
 
             if (singer.isMatch(name)) {
